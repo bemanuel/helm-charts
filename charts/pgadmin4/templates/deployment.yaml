@@ -31,7 +31,7 @@ spec:
     {{- end }}
     spec:
       initContainers:
-      {{- if .Values.VolumePermissions.enabled }}
+      {{- if .Values.volumePermissions.enabled }}
         - name: init-chmod-data
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
@@ -92,6 +92,9 @@ spec:
           volumeMounts:
             - name: pgadmin-data
               mountPath: /var/lib/pgadmin
+          {{- if .Values.persistentVolume.enabled }}
+              subPath: {{ .Values.persistentVolume.subPath }}
+          {{- end }}
           {{- if .Values.serverDefinitions.enabled }}
             - name: definitions
               mountPath: /pgadmin4/servers.json
