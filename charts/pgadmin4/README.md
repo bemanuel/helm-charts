@@ -69,11 +69,12 @@ The command removes nearly all the Kubernetes components associated with the cha
 | `persistentVolume.accessMode` | Persistent Volume access Mode | `ReadWriteOnce` |
 | `persistentVolume.size` | Persistent Volume size | `10Gi` |
 | `persistentVolume.storageClass` | Persistent Volume Storage Class | `unset` |
+| `persistentVolume.subPath` | subdirectory where the volume will be mounted | `unset` |
 | `securityContext` | Custom [security context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) for pgAdmin4 containers | `` |
 | `resources` | CPU/memory resource requests/limits | `{}` |
 | `livenessProbe` | [liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) initial delay and timeout | `` |
 | `readinessProbe` | [readiness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) initial delay and timeout | `` |
-| `VolumePermissions.enabled` | Enables init container that changes volume permissions in the data directory  | `false` |
+| `volumePermissions.enabled` | Enables init container that changes volume permissions in the data directory  | `false` |
 | `extraInitContainers` | Init containers to launch alongside the app | `[]` |
 | `nodeSelector` | Node labels for pod assignment | `{}` |
 | `tolerations` | Node tolerations for pod assignment | `[]` |
