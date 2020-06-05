@@ -39,6 +39,9 @@ spec:
           volumeMounts:
             - name: pgadmin-data
               mountPath: /var/lib/pgadmin
+              {{- if .Values.persistentVolume.enabled }}
+              subPath: {{ .Values.persistentVolume.subPath }}
+              {{- end }}
           securityContext:
             runAsUser: 0
       {{- end }}
